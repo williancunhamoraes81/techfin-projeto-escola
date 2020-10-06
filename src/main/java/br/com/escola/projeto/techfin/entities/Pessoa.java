@@ -1,44 +1,48 @@
 package br.com.escola.projeto.techfin.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name = "tb_disciplina")
-public class Disciplina implements Serializable{
+@Table(name = "tb_pessoa")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Pessoa implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome;
-	private String sigla;
-	private int cargaHoraria;	
+	private String email;
+	private String cpf;
+		
+	@JsonIgnore
+	@OneToMany(mappedBy = "professor")
+	private List<Disciplina> listaDisciplina = new ArrayList<Disciplina>();
 	
-	@ManyToOne
-	@JoinColumn(name = "professor_id")
-	private Pessoa professor;
-	
-	public Disciplina() {
+	public Pessoa() {
 		
 	}
 
-	public Disciplina(Long id, String nome, String sigla, int cargaHoraria, Pessoa professor) {
-		super();
+	public Pessoa(Long id, String nome, String email, String cpf) {		
 		this.id = id;
 		this.nome = nome;
-		this.sigla = sigla;
-		this.cargaHoraria = cargaHoraria;
-		this.professor = professor;
+		this.email = email;
+		this.cpf = cpf;		
 	}
 
 	public Long getId() {
@@ -57,28 +61,24 @@ public class Disciplina implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getSigla() {
-		return sigla;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public int getCargaHoraria() {
-		return cargaHoraria;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCargaHoraria(int cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-		
-	public Pessoa getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Pessoa professor) {
-		this.professor = professor;
+			
+	public List<Disciplina> getListaDisciplina() {
+		return listaDisciplina;
 	}
 
 	@Override
@@ -97,16 +97,16 @@ public class Disciplina implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Disciplina other = (Disciplina) obj;
+		Pessoa other = (Pessoa) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
+	}	
 	
 	
 	
 }
+
