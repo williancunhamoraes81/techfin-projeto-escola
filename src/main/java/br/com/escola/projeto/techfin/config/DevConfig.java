@@ -26,9 +26,9 @@ public class DevConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Professor prof1 = new Professor(null, "Antônio Augusto", "antonio.augusto@gmail.com", "000000000", "Senior");
-		Professor prof2 = new Professor(null, "Maria Clara", "maria.clara@gmail.com", "000000000", "Doctor");
-		Professor prof3 = new Professor(null, "João Lucas", "joao.lucas@gmail.com", "000000000", "Jr");		
+		Professor prof1 = new Professor(null, "Antônio Augusto", "antonio.augusto@gmail.com", "000000000", "MBA");
+		Professor prof2 = new Professor(null, "Maria Clara", "maria.clara@gmail.com", "000000000", "Doutor");
+		Professor prof3 = new Professor(null, "João Lucas", "joao.lucas@gmail.com", "000000000", "MBA/PhD");		
 		Professor prof4 = new Professor(null, "Ana Carolina", "ana.carolina@gmail.com", "0000000000", "PhD");
 		
 		repositoryProfessor.saveAll(Arrays.asList(prof1,prof2,prof3,prof4));
