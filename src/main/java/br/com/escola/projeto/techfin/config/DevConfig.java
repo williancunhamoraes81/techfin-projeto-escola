@@ -7,9 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import br.com.escola.projeto.techfin.entities.Aluno;
 import br.com.escola.projeto.techfin.entities.Disciplina;
-import br.com.escola.projeto.techfin.entities.Pessoa;
 import br.com.escola.projeto.techfin.entities.Professor;
+import br.com.escola.projeto.techfin.respositories.AlunoRepository;
 import br.com.escola.projeto.techfin.respositories.DisciplinaRepository;
 import br.com.escola.projeto.techfin.respositories.ProfessorRepository;
 
@@ -23,13 +24,16 @@ public class DevConfig implements CommandLineRunner{
 	@Autowired
 	ProfessorRepository repositoryProfessor;
 	
+	@Autowired
+	AlunoRepository repositoryAluno;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Professor prof1 = new Professor(null, "Antônio Augusto", "antonio.augusto@gmail.com", "000000000", "MBA");
-		Professor prof2 = new Professor(null, "Maria Clara", "maria.clara@gmail.com", "000000000", "Doutor");
-		Professor prof3 = new Professor(null, "João Lucas", "joao.lucas@gmail.com", "000000000", "MBA/PhD");		
-		Professor prof4 = new Professor(null, "Ana Carolina", "ana.carolina@gmail.com", "0000000000", "PhD");
+		Professor prof1 = new Professor(null, "Antônio Augusto", "", "000000000", "MBA");
+		Professor prof2 = new Professor(null, "Maria Clara", "", "000000000", "Doutor");
+		Professor prof3 = new Professor(null, "João Lucas", "", "000000000", "MBA/PhD");		
+		Professor prof4 = new Professor(null, "Ana Carolina", "", "0000000000", "PhD");
 		
 		repositoryProfessor.saveAll(Arrays.asList(prof1,prof2,prof3,prof4));
 				
@@ -41,6 +45,17 @@ public class DevConfig implements CommandLineRunner{
 		Disciplina dsp6 = new Disciplina(null, "Ed. Física", "ART", 280, prof4);
 		
 		repositoryDisciplina.saveAll(Arrays.asList(dsp1, dsp2, dsp3, dsp4, dsp5, dsp6));
+		
+		Aluno al1 = new Aluno(null, "Willian Moraes", "willian.cunha@totvs.com.br", "00000000000", "0001", "ENAD");
+		Aluno al2 = new Aluno(null, "Thiago Leite", "thiago.leite@totvs.com.br", "00000000000", "0002", "ENAD");
+		Aluno al3 = new Aluno(null, "Victória Durães", "victoria.duraes@totvs.com.br", "00000000000", "0003", "ENAD");
+		Aluno al4 = new Aluno(null, "Gerson Teixeira", "gerson.teixeira@totvs.com.br", "00000000000", "0004", "ENAD");
+		Aluno al5 = new Aluno(null, "Rubens Gomes", "rubens.gomes@totvs.com.br", "00000000000", "0005", "ENAD");
+		Aluno al6 = new Aluno(null, "Andressa Araújo", "andressa.araujo@totvs.com.br", "00000000000", "0006", "ENAD");
+		Aluno al7 = new Aluno(null, "Pedro Santos", "pedro.santos@totvs.com.br", "00000000000", "0007", "ENAD");
+		Aluno al8 = new Aluno(null, "Paulo Silva", "paulo.silva@totvs.com.br", "00000000000", "0007", "ENAD");
+		
+		repositoryAluno.saveAll(Arrays.asList(al1,al2,al3,al4,al5,al6,al7,al8));
 		
 	}
 
