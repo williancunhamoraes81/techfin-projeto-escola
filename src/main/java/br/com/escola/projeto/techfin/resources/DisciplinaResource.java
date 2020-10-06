@@ -29,24 +29,6 @@ public class DisciplinaResource {
 		List<Disciplina> list = service.findAll();		
 		return ResponseEntity.ok().body(list);		
 	}
-	
-	@GetMapping(value="/{id}")
-	public ResponseEntity<Disciplina> findById(@PathVariable Long id){	
-		Disciplina user = service.findById(id);
-		return ResponseEntity.ok().body(user);	
-	}
-	
-	@PostMapping
-	public ResponseEntity<Disciplina> insert(@RequestBody Disciplina obj){
-		service.insert(obj);
-		URI locationURI = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return  ResponseEntity.created(locationURI).body(obj);
-	}
-	
-	@DeleteMapping(value="/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
+			
 	
 }
