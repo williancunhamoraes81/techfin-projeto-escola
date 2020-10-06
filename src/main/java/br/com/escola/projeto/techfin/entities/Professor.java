@@ -1,43 +1,46 @@
 package br.com.escola.projeto.techfin.entities;
 
-import javax.persistence.CascadeType;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_disciplina")
-public class Disciplina {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
+@Table(name = "tb_professor")
+public class Professor{
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome;
-	private String sigla;
-	private int cargaHoraria;	
+	private String email;
+	private String cpf;
+	private String titulacao;
 	
-	@ManyToOne
-	@JoinColumn(name = "professor_id")
-	private Professor professor;
+	@JsonIgnore
+	@OneToMany(mappedBy = "professor")
+	private List<Disciplina> listaDisciplina = new ArrayList<Disciplina>();
 	
-	public Disciplina() {
+	public Professor() {
 		
 	}
 
-	public Disciplina(Long id, String nome, String sigla, int cargaHoraria, Professor professor) {
-		super();
+	public Professor(Long id, String nome, String email, String cpf, String titulacao) {		
 		this.id = id;
 		this.nome = nome;
-		this.sigla = sigla;
-		this.cargaHoraria = cargaHoraria;
-		this.professor = professor;
+		this.email = email;
+		this.cpf = cpf;
+		this.titulacao = titulacao;
 	}
 
 	public Long getId() {
@@ -56,28 +59,32 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-	public String getSigla() {
-		return sigla;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public int getCargaHoraria() {
-		return cargaHoraria;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCargaHoraria(int cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getTitulacao() {
+		return titulacao;
+	}
+
+	public void setTitulacao(String titulacao) {
+		this.titulacao = titulacao;
 	}
 		
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
+	public List<Disciplina> getListaDisciplina() {
+		return listaDisciplina;
 	}
 
 	@Override
@@ -96,16 +103,16 @@ public class Disciplina {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Disciplina other = (Disciplina) obj;
+		Professor other = (Professor) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
+	}	
 	
 	
 	
 }
+
