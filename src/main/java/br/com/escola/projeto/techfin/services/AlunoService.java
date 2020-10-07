@@ -3,6 +3,8 @@ package br.com.escola.projeto.techfin.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -40,6 +42,24 @@ public class AlunoService {
 		}catch(DataIntegrityViolationException e) {
 			throw new DatabaseException(e.getMessage());
 		}
+	}
+	
+	public Aluno update(Long id, Aluno obj) {
+		try {
+			Aluno entity = repository.getOne(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+		}catch(EntityNotFoundException e) {			
+			throw new ResourceNotFoundException(id);
+		}
+	}
+
+	private void updateData(Aluno entity, Aluno obj) {
+		entity.setNome(obj.getNome());
+		entity.setEmail(obj.getEmail());
+		entity.setMatricula(obj.getMatricula());
+		entity.setCpf(obj.getCpf());
+		entity.setFormaIngresso(obj.getFormaIngresso());		
 	}
 		
 }
