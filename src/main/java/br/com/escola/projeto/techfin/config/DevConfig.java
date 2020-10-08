@@ -40,7 +40,7 @@ public class DevConfig implements CommandLineRunner{
 		Professor prof2 = new Professor(null, "Maria Clara", "", "000000000", "Doutor");
 		Professor prof3 = new Professor(null, "João Lucas", "", "000000000", "MBA/PhD");		
 		Professor prof4 = new Professor(null, "Ana Carolina", "", "0000000000", "PhD");
-		
+				
 		repositoryProfessor.saveAll(Arrays.asList(prof1,prof2,prof3,prof4));
 				
 		Disciplina dsp1 = new Disciplina(null, "Matemática", "MAT", 180, prof1);
@@ -64,12 +64,10 @@ public class DevConfig implements CommandLineRunner{
 		
 		repositoryAluno.saveAll(Arrays.asList(al1,al2,al3,al4,al5,al6,al7,al8, al9));
 		
-		Turma t1 = new Turma(null, dsp1.getNome(), 2020, 2020, 50, dsp1);
-				
+		Turma t1 = new Turma(null, dsp1.getNome(), 2020, 2020, 50, dsp1);				
 		repositoryTurma.saveAll(Arrays.asList(t1));
 		
-		t1.getAlunos().addAll(Arrays.asList(al1, al8, al5));
-				
+		t1.getAlunos().addAll(Arrays.asList(al1, al8, al5));				
 		repositoryTurma.saveAll(Arrays.asList(t1));
 		
 		
