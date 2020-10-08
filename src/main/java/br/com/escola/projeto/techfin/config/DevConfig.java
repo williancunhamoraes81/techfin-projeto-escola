@@ -36,10 +36,10 @@ public class DevConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Professor prof1 = new Professor(null, "Antônio Augusto", "antonio.augusto@gmail.com", "295.096.418-47", "MBA");
-		Professor prof2 = new Professor(null, "Maria Clara", "maria.clara@gmail.com", "295.096.418-47", "Doutor");
-		Professor prof3 = new Professor(null, "João Lucas", "joao.lucas@gmail.com", "295.096.418-47", "MBA/PhD");		
-		Professor prof4 = new Professor(null, "Ana Carolina", "ana.carolina@gmail.com", "295.096.418-47", "PhD");
+		Professor prof1 = new Professor(null, "Antônio Augusto", "antonio.augusto@gmail.com", "118.683.110-31", "MBA");
+		Professor prof2 = new Professor(null, "Maria Clara", "maria.clara@gmail.com", "312.985.190-98", "Doutor");
+		Professor prof3 = new Professor(null, "João Lucas", "joao.lucas@gmail.com", "194.498.000-81", "MBA/PhD");		
+		Professor prof4 = new Professor(null, "Ana Carolina", "ana.carolina@gmail.com", "744.923.030-57", "PhD");
 				
 		repositoryProfessor.saveAll(Arrays.asList(prof1,prof2,prof3,prof4));
 				
@@ -52,15 +52,15 @@ public class DevConfig implements CommandLineRunner{
 		
 		repositoryDisciplina.saveAll(Arrays.asList(dsp1, dsp2, dsp3, dsp4, dsp5, dsp6));
 			
-		Aluno al1 = new Aluno(null, "Willian Moraes", "willian.cunha@totvs.com.br", "295.096.418-47", "0001", "ENAD");
-		Aluno al2 = new Aluno(null, "Thiago Leite", "thiago.leite@totvs.com.br", "295.096.418-47", "0002", "ENAD");
-		Aluno al3 = new Aluno(null, "Victória Durães", "victoria.duraes@totvs.com.br", "295.096.418-47", "0003", "ENAD");
-		Aluno al4 = new Aluno(null, "Gerson Teixeira", "gerson.teixeira@totvs.com.br", "295.096.418-47", "0004", "ENAD");
-		Aluno al5 = new Aluno(null, "Rubens Gomes", "rubens.gomes@totvs.com.br", "295.096.418-47", "0005", "ENEM");
-		Aluno al6 = new Aluno(null, "Andressa Araújo", "andressa.araujo@totvs.com.br", "295.096.418-47", "0006", "ENEM");
-		Aluno al7 = new Aluno(null, "Pedro Santos", "pedro.santos@totvs.com.br", "295.096.418-47", "0007", "ENAD");
-		Aluno al8 = new Aluno(null, "Paulo Silva", "paulo.silva@totvs.com.br", "295.096.418-47", "0008", "ENEM");
-		Aluno al9 = new Aluno(null, "Ivan Issa", "ivan.issa@totvs.com.br", "295.096.418-47", "0009", "ENAD");			
+		Aluno al1 = new Aluno(null, "Willian Moraes", "willian.cunha@totvs.com.br", "594.215.280-26", "0001", "ENAD");
+		Aluno al2 = new Aluno(null, "Thiago Leite", "thiago.leite@totvs.com.br", "941.887.450-45", "0002", "ENAD");
+		Aluno al3 = new Aluno(null, "Victória Durães", "victoria.duraes@totvs.com.br", "745.237.550-51", "0003", "ENAD");
+		Aluno al4 = new Aluno(null, "Gerson Teixeira", "gerson.teixeira@totvs.com.br", "152.076.920-20", "0004", "ENAD");
+		Aluno al5 = new Aluno(null, "Rubens Gomes", "rubens.gomes@totvs.com.br", "093.953.510-63", "0005", "ENEM");
+		Aluno al6 = new Aluno(null, "Andressa Araújo", "andressa.araujo@totvs.com.br", "228.834.230-75", "0006", "ENEM");
+		Aluno al7 = new Aluno(null, "Pedro Santos", "pedro.santos@totvs.com.br", "511.734.270-40", "0007", "ENAD");
+		Aluno al8 = new Aluno(null, "Paulo Silva", "paulo.silva@totvs.com.br", "030.780.170-52", "0008", "ENEM");
+		Aluno al9 = new Aluno(null, "Ivan Issa", "ivan.issa@totvs.com.br", "645.446.050-91", "0009", "ENAD");			
 		
 		repositoryAluno.saveAll(Arrays.asList(al1,al2,al3,al4,al5,al6,al7,al8, al9));
 		
