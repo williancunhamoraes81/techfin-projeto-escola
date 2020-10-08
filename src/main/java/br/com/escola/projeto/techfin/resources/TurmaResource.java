@@ -3,6 +3,8 @@ package br.com.escola.projeto.techfin.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,7 +42,7 @@ public class TurmaResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Turma> insert(@RequestBody Turma obj){		
+	public ResponseEntity<Turma> insert(@Valid @RequestBody Turma obj){		
 		service.insert(obj);
 		URI locationURI = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return  ResponseEntity.created(locationURI).body(obj);
@@ -53,7 +55,7 @@ public class TurmaResource {
 	}
 		
 	@PutMapping(value="/{id}")
-	public ResponseEntity<Turma> update(@PathVariable Long id, @RequestBody Turma obj){
+	public ResponseEntity<Turma> update(@PathVariable Long id, @Valid @RequestBody Turma obj){
 		obj = service.update(id, obj);
 		return  ResponseEntity.ok().body(obj);
 	}

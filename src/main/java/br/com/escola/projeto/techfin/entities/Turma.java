@@ -13,6 +13,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name = "tb_turma")
@@ -23,15 +28,27 @@ public class Turma implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message="Favor preencher a descrição.")
+	@Length(min = 5, max = 80, message = "A descrição deve conter entre 5 e 80 caracteres.")
 	private String descricao;
+		
+	@NotNull(message = "Favor inserir ano letivo.")
+	@Range(min = 1950, max = 2300, message = "Favor inserir ano letivo válido.")
 	private Integer anoLetivo;
+	
+	@NotNull(message = "Favor inserir período letivo.")
+	@Range(min = 1950, max = 2300, message = "Favor inserir período letivo válido.")
 	private Integer periodoLetivo;
+	
+	@Range(min = 1, message = "Favor preencher o número de vagas.")
 	private int numeroVagas;
-
+	
+	@NotNull(message = "Favor selecionar a disciplina.")
 	@ManyToOne
 	@JoinColumn(name = "disciplina_id")
 	private Disciplina disciplina;
-
+		
 	@OneToMany
 	@JoinTable(name = "tb_turma_aluno", joinColumns = {
 			@JoinColumn(name = "turma_id", referencedColumnName = "id") }, inverseJoinColumns = {

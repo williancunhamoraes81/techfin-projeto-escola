@@ -10,10 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,8 +31,16 @@ public class Pessoa implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank(message="Favor preencher o nome.")
+	@Length(min = 5, max = 80, message = "O nome deve conter entre 5 e 80 caracteres.")
 	private String nome;
+		
+	@NotBlank(message="Favor informar e-mail.")
+	@Email(regexp =".+@.+\\..+", message = "E-mail inválido")	
 	private String email;
+	
+	@NotBlank(message="Favor informar cpf.")
+	@CPF(message = "CPF inválido.")
 	private String cpf;
 		
 	@JsonIgnore

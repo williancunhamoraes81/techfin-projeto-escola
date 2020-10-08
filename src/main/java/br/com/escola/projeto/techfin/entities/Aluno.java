@@ -8,8 +8,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_aluno")
@@ -17,7 +21,13 @@ public class Aluno extends Pessoa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotNull
+	@NotBlank(message="Favor informar a matricula.")
+	@Length(min = 4, max = 4, message = "O campo matrícula deve conter 4 caracteres.")
 	private String matricula;
+	
+	@NotNull
+	@NotBlank(message="Favor informar a forma de ingresso.")
 	private String formaIngresso;
 
 	@JsonIgnore
