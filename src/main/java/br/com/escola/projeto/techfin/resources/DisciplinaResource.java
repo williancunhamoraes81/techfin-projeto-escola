@@ -29,6 +29,12 @@ public class DisciplinaResource {
 		List<Disciplina> list = service.findAll();		
 		return ResponseEntity.ok().body(list);		
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Disciplina> findById(@PathVariable Long id){		
+		Disciplina obj = service.findById(id);	
+		return ResponseEntity.ok().body(obj);		
+	}
 			
 	
 }
