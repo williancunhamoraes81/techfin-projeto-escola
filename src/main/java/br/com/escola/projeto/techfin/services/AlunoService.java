@@ -11,10 +11,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.totvs.tjf.api.context.v2.response.ApiCollectionResponse;
-
 import br.com.escola.projeto.techfin.entities.Aluno;
-import br.com.escola.projeto.techfin.entities.Disciplina;
 import br.com.escola.projeto.techfin.respositories.AlunoRepository;
 import br.com.escola.projeto.techfin.services.exceptions.DatabaseException;
 import br.com.escola.projeto.techfin.services.exceptions.ResourceNotFoundException;

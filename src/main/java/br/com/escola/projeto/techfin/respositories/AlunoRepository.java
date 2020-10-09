@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import br.com.escola.projeto.techfin.entities.Aluno;
 
 @Repository
-@Transactional()
 public interface AlunoRepository extends JpaRepository<Aluno, Long>{
 
 }

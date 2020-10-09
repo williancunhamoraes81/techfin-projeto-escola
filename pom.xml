@@ -44,27 +44,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.totvs.tjf</groupId>
-			<artifactId>tjf-api-jpa</artifactId>
-			<version>2.0.0-RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.totvs.tjf</groupId>
-			<artifactId>tjf-core-validation</artifactId>
-			<version>2.0.0-RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.totvs.tjf</groupId>
-			<artifactId>tjf-api-context</artifactId>
-			<version>2.0.0-RELEASE</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.totvs.tjf</groupId>
-			<artifactId>tjf-api-core</artifactId>
-			<version>2.0.0-RELEASE</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<!-- OpenApi -->
