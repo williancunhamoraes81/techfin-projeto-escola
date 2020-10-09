@@ -4,18 +4,23 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.totvs.tjf.api.context.v2.response.ApiCollectionResponse;
+
 import br.com.escola.projeto.techfin.entities.Aluno;
+import br.com.escola.projeto.techfin.entities.Disciplina;
 import br.com.escola.projeto.techfin.respositories.AlunoRepository;
 import br.com.escola.projeto.techfin.services.exceptions.DatabaseException;
 import br.com.escola.projeto.techfin.services.exceptions.ResourceNotFoundException;
 
 @Service
+@Transactional()
 public class AlunoService {
 	
 	@Autowired

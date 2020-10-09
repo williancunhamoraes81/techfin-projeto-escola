@@ -25,7 +25,10 @@ public class Disciplina implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	private Long value;
+	
 	private String nome;
+	private String label;
 	private String sigla;
 	private int cargaHoraria;	
 	
@@ -43,12 +46,22 @@ public class Disciplina implements Serializable{
 	public Disciplina(Long id, String nome, String sigla, int cargaHoraria, Pessoa professor) {
 		super();
 		this.id = id;
+		this.value = id;
 		this.nome = nome;
+		this.label = nome;
 		this.sigla = sigla;
 		this.cargaHoraria = cargaHoraria;
 		this.professor = professor;
 	}
 
+	public Long getValue() {
+		return id;
+	}
+	
+	public void setValue(Long id) {
+		this.value = id;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -63,6 +76,14 @@ public class Disciplina implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getLabel() {
+		return getNome();
+	}
+
+	public void setLabel(String nome) {
+		this.label = nome;
 	}
 
 	public String getSigla() {

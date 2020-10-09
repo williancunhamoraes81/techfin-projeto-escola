@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import br.com.escola.projeto.techfin.services.TurmaService;
 
 @RestController
 @RequestMapping(value="/turmas")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TurmaResource {
 
 	@Autowired
